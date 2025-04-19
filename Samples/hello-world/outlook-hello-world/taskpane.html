@@ -27,8 +27,16 @@
      * Writes 'Hello world!' to a new message body.
      */
     function sayHello() {
+        const requiredAttendees = Office.context.mailbox.item.requiredAttendees;
+        console.log("There are " + requiredAttendees.length + " required attendees.")
+        
+        
+        
         Office.context.mailbox.item.body.setAsync(
-            "Hello world!",
+            "Hello World"
+            requiredAttendees.forEach(function (requiredAttendee) {
+                console.log("Attendee " + requiredAttendee.displayName + ": " + requiredAttendee.recipientType);
+            });
             {
                 coercionType: "html", // Write text as HTML
             },
