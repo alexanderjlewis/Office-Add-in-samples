@@ -43,5 +43,3 @@ function get_command_id() {
   }
   return "MRCS_TpBtn0";
 }
-
-Office.actions.associate("checkSignature", checkSignature);
