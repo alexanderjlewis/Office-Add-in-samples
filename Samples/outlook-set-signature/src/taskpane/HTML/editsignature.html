@@ -13,7 +13,23 @@
 
 <body>  
   <div class="container-taskp">
-
+     <h3 id="demo">
+    </h3>
+       <script>
+          Office.context.mailbox.item.to.getAsync(
+               function (asyncResult) {
+                    // Handle success or error.
+                    if (asyncResult.status !== Office.AsyncResultStatus.Succeeded) {
+                         console.error("Failed to get To recipients. " + JSON.stringify(asyncResult.error));
+                         return;
+                     }
+          
+               const toRecipients = JSON.stringify(asyncResult.value);
+               document.getElementById("demo")
+                .innerHTML = toRecipients;
+        }
+          });
+     </script>
 
   </div>
 </body>
